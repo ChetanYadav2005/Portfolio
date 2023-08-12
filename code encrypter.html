@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Text Encryption/Decryption</title>
+  <meta name="viewport" content= 
+        "width=device-width, initial-scale=1.0"> 
+        <!-- CSS file Included -->
+    <link rel="stylesheet" 
+    type="text/css" href="encrypter.css"> 
+    <!-- JavaScript file included -->
+    <script src="encrypter.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Text Encryption/Decryption</h2>
+    <label for="encryptionType">Select encryption type:</label>
+    <select id="encryptionType">
+      <option value="binary">Binary</option>
+      <option value="ascii">ASCII</option>
+      <option value="utf8">UTF-8</option>
+      <option value="caesar">Caesar</option>
+      <option value="atbash">Atbash</option>
+      <option value="railFence">Rail Fence</option>
+    </select>
+
+    <label for="inputText">Enter text or numbers:</label>
+    <input type="text" id="inputText"><br><br>
+
+    <label for="shift">Shift (for Caesar encryption):</label>
+    <input type="number" id="shift" value="3"><br><br>
+
+    <label for="rails">Rails (for Rail Fence encryption):</label>
+    <input type="number" id="rails" value="3">
+
+    <label>Choose action:</label>
+    <input type="radio" name="action" value="encrypt" checked> Encrypt
+    <input type="radio" name="action" value="decrypt"> Decrypt
+
+    <button onclick="encryptDecrypt()">Process</button>
+
+    <div class="result">
+      <label>Result:</label>
+      <textarea id="outputText" readonly></textarea>
+    </div>
+  </div><br><br>
+  <center><b style="font-size: 22px;">Created by Chetan Yadav</b></center>
+
+</body>
+
+</html>
+

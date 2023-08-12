@@ -1,0 +1,82 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+nav {
+    background-color: #444;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+}
+
+.hero {
+    background-image: url('full.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+}
+
+.about-me {
+    padding: 2rem;
+}
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.project {
+    width: calc(100% - 2rem); /* Full width with 1rem margin on both sides */
+    max-width: 400px; /* Limit the maximum width of the project card */
+    height: 200px;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Responsive styles */
+@media screen and (min-width: 768px) {
+    .project {
+        width: calc(50% - 2rem); /* 50% width with 1rem margin on both sides */
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .project {
+        width: calc(33.3333% - 2rem); /* 33.33% width with 1rem margin on both sides */
+    }
+}
