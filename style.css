@@ -81,6 +81,14 @@ nav a {
     height: auto;
     margin-bottom: 10px;
 }
+
+.certifications {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
 footer {
     background-color: #333;
     color: #fff;
