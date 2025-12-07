@@ -1,73 +1,75 @@
-// --- THEME LOGIC ---
-function toggleTheme() {
-    const body = document.body;
-    const current = body.getAttribute('data-theme');
+document.addEventListener('DOMContentLoaded', () => {
     
-    if (current === 'light') {
-        body.removeAttribute('data-theme');
-        localStorage.setItem('theme', 'dark');
-    } else {
-        body.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-    }
-}
-
-// Check local storage on load
-if (localStorage.getItem('theme') === 'light') {
-    document.body.setAttribute('data-theme', 'light');
-}
-
-// --- TERMINAL LOGIC ---
-const input = document.getElementById('cmd-input');
-const box = document.getElementById('terminal-box');
-
-// Focus on input when clicking anywhere in the terminal box
-box.addEventListener('click', () => {
-    input.focus();
-});
-
-input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-        const cmd = input.value.toLowerCase().trim();
-        let output = "Command not found. Type 'help'.";
-
-        if(cmd === 'help') output = "Try: contact, skills, about, clear";
-        else if(cmd === 'contact') output = "Email: chetan03yadav2005@gmail.com";
-        else if(cmd === 'skills') output = "Python, Java, MERN, Linux";
-        else if(cmd === 'about') output = "CS Graduate, Trainee at TCS.";
-        
-        // Create the old command line
-        const oldLine = document.createElement('div');
-        oldLine.className = 'cmd-line';
-        oldLine.innerHTML = `<span style="color:var(--accent)">~/visitor $</span> ${input.value}`;
-        
-        // Insert before the current input line
-        box.insertBefore(oldLine, input.parentElement);
-
-        if(cmd !== 'clear') {
-            const res = document.createElement('div');
-            res.style.marginBottom = "8px";
-            res.style.color = "#ccc";
-            res.innerText = output;
-            box.insertBefore(res, input.parentElement);
+    // --- 1. THEME TOGGLE LOGIC ---
+    const themeBtn = document.getElementById('theme-btn');
+    
+    themeBtn.addEventListener('click', () => {
+        const body = document.body;
+        const current = body.getAttribute('data-theme');
+        if (current === 'light') {
+            body.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'dark');
         } else {
-            // Reset terminal content
-            box.innerHTML = `
-                <div style="margin-bottom: 10px;">Welcome v1.0. Type 'help'.</div>
-                <div class="cmd-line">
-                    <span class="cmd-prompt">~/visitor $</span>
-                    <input type="text" class="cmd-input" id="cmd-input" autocomplete="off">
-                </div>`;
-            
-            // Re-bind the input variable and event listener after clearing HTML
-            const newInput = document.getElementById('cmd-input');
-            newInput.addEventListener('keydown', arguments.callee);
-            newInput.focus();
-            return;
+            body.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
         }
-        
-        // Clear input and scroll to bottom
-        input.value = "";
-        input.scrollIntoView();
+    });
+
+    // Check saved theme on load
+    if (localStorage.getItem('theme') === 'light') {
+        document.body.setAttribute('data-theme', 'light');
     }
+
+    // --- 2. TERMINAL LOGIC ---
+    const input = document.getElementById('cmd-input');
+    const historyBox = document.getElementById('terminal-history');
+    const terminalBox = document.getElementById('terminal-wrapper');
+
+    // Auto-focus input when clicking terminal
+    terminalBox.addEventListener('click', () => {
+        input.focus();
+    });
+
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const cmd = input.value.toLowerCase().trim();
+            let output = "";
+
+            if (cmd === 'help') {
+                output = "Available commands: <br>- <span style='color:#fff'>about</span><br>- <span style='color:#fff'>skills</span><br>- <span style='color:#fff'>contact</span><br>- <span style='color:#fff'>clear</span>";
+            } else if (cmd === 'contact') {
+                output = "Email: <a href='mailto:chetan03yadav2005@gmail.com' style='color:var(--accent)'>chetan03yadav2005@gmail.com</a>";
+            } else if (cmd === 'skills') {
+                output = "Python, Java, MERN Stack, Linux, SQL";
+            } else if (cmd === 'about') {
+                output = "CS Graduate, Trainee at TCS, Backend Enthusiast.";
+            } else if (cmd === 'clear') {
+                historyBox.innerHTML = '<div>Terminal cleared.</div>';
+                input.value = "";
+                return;
+            } else if (cmd !== "") {
+                output = `Command not found: '${cmd}'. Type 'help'.`;
+            }
+
+            // Append User Command
+            if (cmd !== "") {
+                const userLine = document.createElement('div');
+                userLine.innerHTML = `<span style="color:var(--accent)">~/visitor $</span> ${input.value}`;
+                historyBox.appendChild(userLine);
+            }
+
+            // Append System Response
+            if (output !== "") {
+                const sysLine = document.createElement('div');
+                sysLine.style.marginBottom = "10px";
+                sysLine.style.color = "#ccc";
+                sysLine.innerHTML = output;
+                historyBox.appendChild(sysLine);
+            }
+
+            // Scroll to bottom
+            input.value = "";
+            terminalBox.scrollTop = terminalBox.scrollHeight;
+        }
+    });
 });
