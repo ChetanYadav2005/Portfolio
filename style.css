@@ -1,110 +1,231 @@
-/* General styles */
+/* --- 1. MODERN VARIABLES --- */
+:root {
+    --bg-deep: #050505;
+    --bg-panel: rgba(20, 20, 22, 0.7);
+    --bg-panel-hover: rgba(30, 30, 35, 0.9);
+    --border: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(255, 255, 255, 0.2);
+    --accent: #3b82f6;
+    --accent-glow: rgba(59, 130, 246, 0.3);
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --font-ui: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --card-radius: 16px;
+}
+
+/* Light Mode Overrides */
+[data-theme="light"] {
+    --bg-deep: #f0f2f5;
+    --bg-panel: rgba(255, 255, 255, 0.8);
+    --bg-panel-hover: #ffffff;
+    --border: rgba(0, 0, 0, 0.08);
+    --border-hover: rgba(0, 0, 0, 0.2);
+    --text-main: #111827;
+    --text-muted: #4b5563;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; transition: background 0.3s, border 0.3s, color 0.3s; }
+
 body {
-    font-family: Arial, sans-serif;
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: var(--font-ui);
     line-height: 1.6;
-    margin: 0;
-    padding: 0;
+    /* Dot Pattern Background */
+    background-image: radial-gradient(var(--border-hover) 1px, transparent 1px);
+    background-size: 24px 24px;
+    padding: 40px 20px;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
+/* --- 2. LAYOUT --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 30px;
+    align-items: start;
 }
 
-h1 {
-    margin: 0;
+/* --- 3. GLASS CARDS --- */
+.card {
+    background: var(--bg-panel);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: var(--card-radius);
+    padding: 24px;
+}
+.card:hover { border-color: var(--border-hover); }
+
+/* --- 4. SIDEBAR STYLES --- */
+.sidebar { position: sticky; top: 40px; display: flex; flex-direction: column; gap: 20px; }
+
+.profile-header { text-align: center; }
+.avatar-wrapper {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 16px;
 }
 
-nav {
-    background-color: #444;
-    text-align: center;
-    padding: 0.5rem;
+/* 1. The Photo Style */
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border);
+    /* Protection settings */
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 1rem;
-}
-
-.hero {
-    background-image: url('full.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 400px;
-    display: flex;
-    justify-content: center;
+/* 2. The 'CY' Fallback Style */
+.avatar-fallback {
+    /* Initially hidden via JS if image loads, but we style it here */
+    display: none; /* Default state: Hidden (Script will change this to flex if error) */
+    
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #222, #111);
+    border: 2px solid var(--border);
+    
+    /* Centering the text */
     align-items: center;
-    color: #fff;
-    text-align: center;
+    justify-content: center;
+    
+    font-size: 2rem;
+    color: var(--text-muted);
+    font-weight: 700;
 }
 
-.about-me {
-    padding: 2rem;
+/* If the user has not uploaded an image yet, 
+   you can force the fallback to show by default by adding this: 
+*/
+/* .avatar-fallback { display: flex; } */
+.avatar-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Makes it circular */
+    object-fit: cover;  /* Ensures photo doesn't stretch */
+    border: 2px solid var(--border);
+    margin: 0 auto 16px;
+    display: block;
+    
+    /* PROTECTION TRICKS */
+    pointer-events: none; /* Disables mouse interaction (hover, click) */
+    user-select: none;    /* Prevents highlighting */
+    -webkit-user-drag: none; /* Prevents dragging image to desktop */
+}s
+.name { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.status-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; }
+.role { color: var(--accent); font-weight: 500; font-size: 0.9rem; margin-bottom: 16px; }
+.bio { font-size: 0.9rem; color: var(--text-muted); }
+
+.social-links { display: flex; justify-content: center; gap: 12px; margin-top: 16px; }
+.social-btn {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: var(--border); color: var(--text-muted);
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; transition: 0.2s;
+}
+.social-btn:hover { background: var(--accent); color: white; }
+
+.action-buttons { margin-top: 20px; }
+.btn {
+    display: block; width: 100%; padding: 12px; border-radius: 8px;
+    text-align: center; font-weight: 600; text-decoration: none; cursor: pointer;
+    margin-top: 10px; border: 1px solid var(--border);
+    background: var(--bg-panel-hover); color: var(--text-main);
+}
+.btn-primary {
+    background: var(--accent); border-color: var(--accent); color: white;
+    box-shadow: 0 4px 15px var(--accent-glow);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px var(--accent-glow); }
+
+/* Certifications */
+.cert-item { margin-bottom: 15px; }
+.cert-title { font-weight: 600; font-size: 0.9rem; }
+.cert-desc { font-size: 0.8rem; color: var(--text-muted); }
+
+/* --- 5. MAIN CONTENT STYLES --- */
+.main-col { display: flex; flex-direction: column; gap: 30px; }
+
+.section-title {
+    font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px;
+    color: var(--text-muted); margin-bottom: 16px; font-weight: 700;
+    display: flex; align-items: center; gap: 10px;
+}
+.section-title::after { content: ''; height: 1px; flex: 1; background: var(--border); }
+
+/* FEATURED PROJECTS */
+.project-card {
+    background: var(--bg-panel); border: 1px solid var(--border);
+    border-radius: var(--card-radius); padding: 24px; margin-bottom: 20px;
+    transition: transform 0.2s, border-color 0.2s; position: relative; overflow: hidden;
+}
+.project-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+.project-card::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+    background: var(--accent); opacity: 0; transition: 0.2s;
+}
+.project-card:hover::before { opacity: 1; }
+
+.p-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+.p-title { font-size: 1.2rem; font-weight: 700; color: var(--text-main); }
+.icon-muted { color: var(--text-muted); }
+.p-desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; }
+
+.p-tech-stack { display: flex; gap: 8px; flex-wrap: wrap; }
+.tech-pill {
+    font-size: 0.75rem; padding: 4px 10px; border-radius: 20px;
+    background: var(--border); color: var(--text-muted); font-family: var(--font-mono);
 }
 
-.projects {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 2rem;
+/* ARCHIVE GRID */
+.archive-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px;
 }
+.archive-item {
+    padding: 16px; background: var(--bg-panel); border: 1px solid var(--border);
+    border-radius: 12px; transition: 0.2s;
+}
+.archive-item:hover { border-color: var(--text-muted); background: var(--bg-panel-hover); }
+.a-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 6px; }
+.a-icon { margin-right: 5px; color: var(--accent); }
+.a-desc { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px; line-height: 1.4; }
+.pill-sm { font-size: 0.65rem; }
 
-.project {
-    width: calc(100% - 2rem); /* Full width with 1rem margin on both sides */
-    max-width: 400px; /* Limit the maximum width of the project card */
-    height: 200px;
-    margin-bottom: 2rem;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    padding: 1rem;
+/* TIMELINE */
+.timeline-item {
+    position: relative; padding-left: 24px; padding-bottom: 24px; border-left: 2px solid var(--border);
 }
-.badges {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 20px 0;
+.timeline-item:last-child { padding-bottom: 0; border-left-color: transparent; }
+.timeline-dot {
+    position: absolute; left: -6px; top: 0; width: 10px; height: 10px;
+    background: var(--accent); border-radius: 50%; border: 2px solid var(--bg-deep);
 }
+.t-date { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-bottom: 4px; }
+.t-role { font-weight: 600; font-size: 1rem; color: var(--text-main); }
+.t-company { font-size: 0.9rem; color: var(--text-muted); }
 
-.badge-card {
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 10px;
-    text-align: center;
+/* TERMINAL */
+.terminal {
+    background: #0d0d0d; border: 1px solid var(--border); padding: 16px;
+    border-radius: 12px; font-family: var(--font-mono); font-size: 0.8rem;
+    color: #a3a3a3; min-height: 150px; cursor: text;
 }
+.cmd-line { display: flex; gap: 8px; margin-top: 8px; }
+.cmd-prompt { color: var(--accent); }
+.cmd-input { background: transparent; border: none; color: #fff; outline: none; flex: 1; font-family: inherit; }
 
-.badge-card img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
-
-.certifications {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 2rem;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-}
-
-/* Responsive styles */
-@media screen and (min-width: 768px) {
-    .project {
-        width: calc(50% - 2rem); /* 50% width with 1rem margin on both sides */
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    .project {
-        width: calc(33.3333% - 2rem); /* 33.33% width with 1rem margin on both sides */
-    }
+/* RESPONSIVE */
+@media (max-width: 850px) {
+    .container { grid-template-columns: 1fr; }
+    .sidebar { position: relative; top: 0; }
 }
