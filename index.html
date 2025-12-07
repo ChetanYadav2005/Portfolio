@@ -14,35 +14,33 @@
         
         <aside class="sidebar">
             <div class="card profile-header">
-                <div class="card profile-header">
-    
-    <div class="avatar-wrapper">
-        <img src="chetan1.jpg" 
-             alt="Chetan Yadav" 
-             class="avatar-img" 
-             draggable="false" 
-             oncontextmenu="return false"
-             onerror="this.style.display='none'; document.getElementById('fallback-avatar').style.display='flex'">
-        
-        <div id="fallback-avatar" class="avatar-fallback">CY</div>
-    </div>
+                <div class="avatar-wrapper">
+                    <img src="chetan.jpg" 
+                         alt="CY" 
+                         class="avatar-img" 
+                         draggable="false" 
+                         oncontextmenu="return false"
+                         onerror="this.style.display='none'; document.getElementById('fallback-avatar').style.display='flex'">
+                    
+                    <div id="fallback-avatar" class="avatar-fallback">CY</div>
+                </div>
 
-    <h1 class="name">Chetan Yadav <span class="status-dot" title="Online"></span></h1>
+                <h1 class="name">Chetan Yadav <span class="status-dot" title="Online"></span></h1>
                 <p class="role">Graduate Trainee @ TCS</p>
                 <p class="bio">
-                    Motivated Computer Science Student/Graduate with skills in Python, C++, Java, and Web Technologies.
+                    Motivated Computer Science Graduate with skills in Python, C++, Java, and Web Technologies.
                 </p>
                 
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/chetan-yadav-264648250" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://instagram.com/yadav_chetan_2005" class="social-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:chetan03yadav2005@gmail.com" class="social-btn" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/chetan-yadav-264648250" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://instagram.com/yadav_chetan_2005" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:chetan03yadav2005@gmail.com" class="social-btn"><i class="fas fa-envelope"></i></a>
                 </div>
 
                 <div class="action-buttons">
                     <a href="mailto:chetan03yadav2005@gmail.com" class="btn btn-primary">Hire Me</a>
-                    <button class="btn" onclick="alert('Downloading Chetan_Resume.pdf...')">Download Resume</button>
-                    <button class="btn" id="theme-btn" onclick="toggleTheme()">☀ Switch Theme</button>
+                    <button class="btn" onclick="alert('Please add your resume PDF to the folder and name it resume.pdf')">Download Resume</button>
+                    <button class="btn" id="theme-btn">☀ Switch Theme</button>
                 </div>
             </div>
 
@@ -58,11 +56,13 @@
                 </div>
             </div>
 
-            <div class="terminal" id="terminal-box">
-                <div style="margin-bottom: 10px;">Welcome v1.0. Type 'help'.</div>
+            <div class="terminal" id="terminal-wrapper">
+                <div id="terminal-history">
+                    <div style="margin-bottom: 10px;">Welcome v1.0. Type 'help'.</div>
+                </div>
                 <div class="cmd-line">
                     <span class="cmd-prompt">~/visitor $</span>
-                    <input type="text" class="cmd-input" id="cmd-input" autocomplete="off">
+                    <input type="text" class="cmd-input" id="cmd-input" autocomplete="off" spellcheck="false">
                 </div>
             </div>
         </aside>
@@ -72,7 +72,7 @@
             <section>
                 <div class="section-title">Latest Works</div>
 
-                <div class="project-card">
+                <a href="#" target="_blank" class="project-card">
                     <div class="p-header">
                         <div class="p-title">JPost Network</div>
                         <i class="fas fa-globe icon-muted"></i>
@@ -85,37 +85,37 @@
                         <span class="tech-pill">Socket.io</span>
                         <span class="tech-pill">Redux</span>
                     </div>
-                </div>
+                </a>
 
-                <div class="project-card">
+                <a href="#" target="_blank" class="project-card">
                     <div class="p-header">
                         <div class="p-title">YCHandyHome</div>
                         <i class="fab fa-android icon-muted"></i>
                     </div>
                     <p class="p-desc">
-                        Android app for booking home services. Includes a separate Admin Panel for managing orders and offline worker allocation.
+                        Android app for booking home services. Includes a separate Admin Panel for managing orders.
                     </p>
                     <div class="p-tech-stack">
                         <span class="tech-pill">Kotlin</span>
                         <span class="tech-pill">Firebase</span>
                         <span class="tech-pill">XML</span>
                     </div>
-                </div>
+                </a>
 
-                <div class="project-card">
+                <a href="#" target="_blank" class="project-card">
                     <div class="p-header">
                         <div class="p-title">Movie Data Bot</div>
                         <i class="fas fa-robot icon-muted"></i>
                     </div>
                     <p class="p-desc">
-                        A Python automation script that scraped 2000+ movie records from TMDB and saved them to Excel for data analysis.
+                        A Python automation script that scraped 2000+ movie records from TMDB and saved them to Excel.
                     </p>
                     <div class="p-tech-stack">
                         <span class="tech-pill">Python</span>
                         <span class="tech-pill">BeautifulSoup</span>
                         <span class="tech-pill">Pandas</span>
                     </div>
-                </div>
+                </a>
             </section>
 
             <section>
@@ -146,35 +146,35 @@
                 <div class="section-title">Project Vault / Archives</div>
                 <div class="archive-grid">
                     
-                    <div class="archive-item">
+                    <a href="notepad.jar" class="archive-item">
                         <div class="a-title"><i class="fas fa-file-alt a-icon"></i> Notepad App</div>
-                        <div class="a-desc">Created with Java using Swing and AWT packages.</div>
+                        <div class="a-desc">Java Swing/AWT desktop editor.</div>
                         <span class="tech-pill pill-sm">Java</span>
-                    </div>
+                    </a>
 
-                    <div class="archive-item">
+                    <a href="code encrypter.html" class="archive-item">
                         <div class="a-title"><i class="fas fa-lock a-icon"></i> Text Encrypter</div>
-                        <div class="a-desc">Created with HTML using external CSS and JS.</div>
+                        <div class="a-desc">Web-based encryption tool.</div>
                         <span class="tech-pill pill-sm">Web</span>
-                    </div>
+                    </a>
 
-                    <div class="archive-item">
+                    <a href="tic tac toe .html" class="archive-item">
                         <div class="a-title"><i class="fas fa-gamepad a-icon"></i> Tic Tac Toe</div>
-                        <div class="a-desc">Classic game created with HTML, CSS, and JS.</div>
+                        <div class="a-desc">Classic JS browser game.</div>
                         <span class="tech-pill pill-sm">JS</span>
-                    </div>
+                    </a>
 
-                    <div class="archive-item">
+                    <a href="pizza order.html" class="archive-item">
                         <div class="a-title"><i class="fas fa-pizza-slice a-icon"></i> Pizza Booking</div>
-                        <div class="a-desc">Static ordering site created with HTML.</div>
+                        <div class="a-desc">Static ordering website.</div>
                         <span class="tech-pill pill-sm">HTML</span>
-                    </div>
+                    </a>
 
-                    <div class="archive-item">
+                    <a href="calculator.html" class="archive-item">
                         <div class="a-title"><i class="fas fa-calculator a-icon"></i> Calculator</div>
-                        <div class="a-desc">Basic calculator created with HTML.</div>
+                        <div class="a-desc">Basic web calculator.</div>
                         <span class="tech-pill pill-sm">HTML</span>
-                    </div>
+                    </a>
 
                 </div>
             </section>
