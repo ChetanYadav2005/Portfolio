@@ -3,87 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Chetan Yadav - Motivated Computer Science Student showcasing skills, talent, and projects.
-        Explore my portfolio, learn about me, and contact me here. as well as this can be my resume if you consider.">
-     <meta name="keywords" content="Chetan Yadav, portfolio, Chetan Yadav Portfolio, portfolio to showcase skills,
-      Computer Science Students portfolio,projects by chetan">
-    <title>Chetan Yadav Portfolio</title>
+    <title>Chetan Yadav | Portfolio</title>
+    <meta name="description" content="Portfolio of Chetan Yadav - Developer & Graduate Trainee">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
-        <h1>Chetan Yadav</h1>
-        <p>Freelance Developer / Designer</p>
-    </header>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#about">About Me</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    <div class="hero">
-        <h2>Welcome to my portfolio</h2>
-    </div>
-    <h2 style="display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 2rem;">Projects</h2>
-    <section id="projects" class="projects">
-        <a href="tic tac toe .html" class="project">
-            <h3>Tic Tac Toe</h3>
-            <p>Created with HTML, CSS, and JS</p>
-        </a>
 
-        <a href="code encrypter.html" class="project">
-            <h3>Text Encrypter/Decrypter</h3>
-            <p>Created with HTML using external css and JS</p>
-        </a>
-
-        <a href="pizza order.html" class="project">
-            <h3>Pizza booking site</h3>
-            <p>Created with HTML</p>
-        </a>
-
-        <a href="calculator.html" class="project">
-            <h3>calculator</h3>
-            <p>Created with HTML</p>
-        </a>
-
-        <a href="notepad.jar" class="project" onclick="confirm('This app will only work in Environment which has jre because the file type is .jar')">
-            <h3>Notepad</h3>
-            <p>Created with Java using swing and awt packages</p>
-        </a>
-
+    <div class="container">
         
-    </section>
+        <aside class="sidebar">
+            <div class="card profile-header">
+                <div class="card profile-header">
+    
+    <div class="avatar-wrapper">
+        <img src="chetan1.jpg" 
+             alt="Chetan Yadav" 
+             class="avatar-img" 
+             draggable="false" 
+             oncontextmenu="return false"
+             onerror="this.style.display='none'; document.getElementById('fallback-avatar').style.display='flex'">
+        
+        <div id="fallback-avatar" class="avatar-fallback">CY</div>
+    </div>
 
-    <section id="certifications" class="certifications">
-        <h2>Certifications</h2>
-        <div class="badges">
-            <a href="https://www.credly.com/badges/e05bb84b-b944-48f2-9e71-a64aa3f2164a/public_url"><div class="badge-card">
-                <img src="microsoft-certified-security-compliance-and-identity-fundamentals (1).png" alt=" Microsoft Certification Badge ">
-                <h3>Microsoft Certified: Security, Compliance, and Identity Fundamentals</h3>
-                <p>Microsoft</p>
-            </div></a>
-            <a href="https://skillshop.exceedlms.com/student/award/YqsKj1L8WzjGuWU5q2DNJJzG"><div class="badge-card">
-                <img src="screenshot-2023-03-28-4-50-04-pm.png" alt=" Google Certification Badge ">
-                <h3>Fundamentals of digital marketing</h3>
-                <p>Google</p>
-            </div></a>
-    </section>
+    <h1 class="name">Chetan Yadav <span class="status-dot" title="Online"></span></h1>
+                <p class="role">Graduate Trainee @ TCS</p>
+                <p class="bio">
+                    Motivated Computer Science Student/Graduate with skills in Python, C++, Java, and Web Technologies.
+                </p>
+                
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/chetan-yadav-264648250" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://instagram.com/yadav_chetan_2005" class="social-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:chetan03yadav2005@gmail.com" class="social-btn" title="Email"><i class="fas fa-envelope"></i></a>
+                </div>
 
-    <section id="about" class="about-me">
-        <h2>About Me</h2>
-        <p>Motivated Computer Science Student with programming skills in
-             Python, C++, Java, strong foundation in Database Management as well as Web Technologies. Seeking opportunities to learn from
-             experienced professionals and collaborate with teams on
-             innovative Solutions. Open to new challenges and exited to
-             contribute to exiting projects.</p>
-    </section>
-    <footer>
-        <p>Contact: <a href="https://www.linkedin.com/in/chetan-yadav-264648250"><i class="fab fa-linkedin"></i></a> | <a href="https://instagram.com/yadav_chetan_2005?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D"><i class="fab fa-instagram"></i></a></p>
-    </footer>
+                <div class="action-buttons">
+                    <a href="mailto:chetan03yadav2005@gmail.com" class="btn btn-primary">Hire Me</a>
+                    <button class="btn" onclick="alert('Downloading Chetan_Resume.pdf...')">Download Resume</button>
+                    <button class="btn" id="theme-btn" onclick="toggleTheme()">☀ Switch Theme</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="section-title">Certifications</div>
+                <div class="cert-item">
+                    <div class="cert-title">Microsoft Certified</div>
+                    <div class="cert-desc">Security, Compliance, and Identity Fundamentals</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-title">Google Certified</div>
+                    <div class="cert-desc">Fundamentals of Digital Marketing</div>
+                </div>
+            </div>
+
+            <div class="terminal" id="terminal-box">
+                <div style="margin-bottom: 10px;">Welcome v1.0. Type 'help'.</div>
+                <div class="cmd-line">
+                    <span class="cmd-prompt">~/visitor $</span>
+                    <input type="text" class="cmd-input" id="cmd-input" autocomplete="off">
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-col">
+
+            <section>
+                <div class="section-title">Latest Works</div>
+
+                <div class="project-card">
+                    <div class="p-header">
+                        <div class="p-title">JPost Network</div>
+                        <i class="fas fa-globe icon-muted"></i>
+                    </div>
+                    <p class="p-desc">
+                        A full-stack Instagram clone. Features login, posting photos, likes, comments, and real-time chat functionality.
+                    </p>
+                    <div class="p-tech-stack">
+                        <span class="tech-pill">MERN Stack</span>
+                        <span class="tech-pill">Socket.io</span>
+                        <span class="tech-pill">Redux</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="p-header">
+                        <div class="p-title">YCHandyHome</div>
+                        <i class="fab fa-android icon-muted"></i>
+                    </div>
+                    <p class="p-desc">
+                        Android app for booking home services. Includes a separate Admin Panel for managing orders and offline worker allocation.
+                    </p>
+                    <div class="p-tech-stack">
+                        <span class="tech-pill">Kotlin</span>
+                        <span class="tech-pill">Firebase</span>
+                        <span class="tech-pill">XML</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="p-header">
+                        <div class="p-title">Movie Data Bot</div>
+                        <i class="fas fa-robot icon-muted"></i>
+                    </div>
+                    <p class="p-desc">
+                        A Python automation script that scraped 2000+ movie records from TMDB and saved them to Excel for data analysis.
+                    </p>
+                    <div class="p-tech-stack">
+                        <span class="tech-pill">Python</span>
+                        <span class="tech-pill">BeautifulSoup</span>
+                        <span class="tech-pill">Pandas</span>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-title">Experience</div>
+                <div class="card">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="t-date">AUG 2025 - PRESENT</div>
+                        <div class="t-role">Graduate Trainee</div>
+                        <div class="t-company">Tata Consultancy Services (TCS)</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="t-date">MAY 2024 - JUN 2024</div>
+                        <div class="t-role">Intern (Python Automation)</div>
+                        <div class="t-company">Dezignolics</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="t-date">2022 - 2025</div>
+                        <div class="t-role">B.Sc. Computer Science</div>
+                        <div class="t-company">Mumbai University (9.49 CGPA)</div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-title">Project Vault / Archives</div>
+                <div class="archive-grid">
+                    
+                    <div class="archive-item">
+                        <div class="a-title"><i class="fas fa-file-alt a-icon"></i> Notepad App</div>
+                        <div class="a-desc">Created with Java using Swing and AWT packages.</div>
+                        <span class="tech-pill pill-sm">Java</span>
+                    </div>
+
+                    <div class="archive-item">
+                        <div class="a-title"><i class="fas fa-lock a-icon"></i> Text Encrypter</div>
+                        <div class="a-desc">Created with HTML using external CSS and JS.</div>
+                        <span class="tech-pill pill-sm">Web</span>
+                    </div>
+
+                    <div class="archive-item">
+                        <div class="a-title"><i class="fas fa-gamepad a-icon"></i> Tic Tac Toe</div>
+                        <div class="a-desc">Classic game created with HTML, CSS, and JS.</div>
+                        <span class="tech-pill pill-sm">JS</span>
+                    </div>
+
+                    <div class="archive-item">
+                        <div class="a-title"><i class="fas fa-pizza-slice a-icon"></i> Pizza Booking</div>
+                        <div class="a-desc">Static ordering site created with HTML.</div>
+                        <span class="tech-pill pill-sm">HTML</span>
+                    </div>
+
+                    <div class="archive-item">
+                        <div class="a-title"><i class="fas fa-calculator a-icon"></i> Calculator</div>
+                        <div class="a-desc">Basic calculator created with HTML.</div>
+                        <span class="tech-pill pill-sm">HTML</span>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
