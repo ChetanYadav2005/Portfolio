@@ -32,7 +32,6 @@ body {
     color: var(--text-main);
     font-family: var(--font-ui);
     line-height: 1.6;
-    /* Dot Pattern Background */
     background-image: radial-gradient(var(--border-hover) 1px, transparent 1px);
     background-size: 24px 24px;
     padding: 40px 20px;
@@ -57,95 +56,28 @@ body {
     border-radius: var(--card-radius);
     padding: 24px;
 }
-.card:hover { border-color: var(--border-hover); }
 
 /* --- 4. SIDEBAR STYLES --- */
 .sidebar { position: sticky; top: 40px; display: flex; flex-direction: column; gap: 20px; }
-
 .profile-header { text-align: center; }
-.avatar-wrapper {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    margin: 0 auto 16px;
-}
 
-/* 1. The Photo Style */
-.avatar-img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--border);
-    /* Protection settings */
-    pointer-events: none;
-    user-select: none;
-    -webkit-user-drag: none;
-}
+/* Avatar Section */
+.avatar-wrapper { position: relative; width: 100px; height: 100px; margin: 0 auto 16px; }
+.avatar-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 2px solid var(--border); pointer-events: none; }
+.avatar-fallback { display: none; width: 100%; height: 100%; border-radius: 50%; background: #222; border: 2px solid var(--border); align-items: center; justify-content: center; font-size: 2rem; color: var(--text-muted); }
 
-/* 2. The 'CY' Fallback Style */
-.avatar-fallback {
-    /* Initially hidden via JS if image loads, but we style it here */
-    display: none; /* Default state: Hidden (Script will change this to flex if error) */
-    
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #222, #111);
-    border: 2px solid var(--border);
-    
-    /* Centering the text */
-    align-items: center;
-    justify-content: center;
-    
-    font-size: 2rem;
-    color: var(--text-muted);
-    font-weight: 700;
-}
-
-/* If the user has not uploaded an image yet, 
-   you can force the fallback to show by default by adding this: 
-*/
-/* .avatar-fallback { display: flex; } */
-.avatar-img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%; /* Makes it circular */
-    object-fit: cover;  /* Ensures photo doesn't stretch */
-    border: 2px solid var(--border);
-    margin: 0 auto 16px;
-    display: block;
-    
-    /* PROTECTION TRICKS */
-    pointer-events: none; /* Disables mouse interaction (hover, click) */
-    user-select: none;    /* Prevents highlighting */
-    -webkit-user-drag: none; /* Prevents dragging image to desktop */
-}s
 .name { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; justify-content: center; gap: 8px; }
 .status-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; }
 .role { color: var(--accent); font-weight: 500; font-size: 0.9rem; margin-bottom: 16px; }
 .bio { font-size: 0.9rem; color: var(--text-muted); }
 
 .social-links { display: flex; justify-content: center; gap: 12px; margin-top: 16px; }
-.social-btn {
-    width: 36px; height: 36px; border-radius: 8px;
-    background: var(--border); color: var(--text-muted);
-    display: flex; align-items: center; justify-content: center;
-    text-decoration: none; transition: 0.2s;
-}
+.social-btn { width: 36px; height: 36px; border-radius: 8px; background: var(--border); color: var(--text-muted); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.2s; }
 .social-btn:hover { background: var(--accent); color: white; }
 
 .action-buttons { margin-top: 20px; }
-.btn {
-    display: block; width: 100%; padding: 12px; border-radius: 8px;
-    text-align: center; font-weight: 600; text-decoration: none; cursor: pointer;
-    margin-top: 10px; border: 1px solid var(--border);
-    background: var(--bg-panel-hover); color: var(--text-main);
-}
-.btn-primary {
-    background: var(--accent); border-color: var(--accent); color: white;
-    box-shadow: 0 4px 15px var(--accent-glow);
-}
+.btn { display: block; width: 100%; padding: 12px; border-radius: 8px; text-align: center; font-weight: 600; text-decoration: none; cursor: pointer; margin-top: 10px; border: 1px solid var(--border); background: var(--bg-panel-hover); color: var(--text-main); }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: white; box-shadow: 0 4px 15px var(--accent-glow); }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px var(--accent-glow); }
 
 /* Certifications */
@@ -155,16 +87,13 @@ body {
 
 /* --- 5. MAIN CONTENT STYLES --- */
 .main-col { display: flex; flex-direction: column; gap: 30px; }
-
-.section-title {
-    font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px;
-    color: var(--text-muted); margin-bottom: 16px; font-weight: 700;
-    display: flex; align-items: center; gap: 10px;
-}
+.section-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin-bottom: 16px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
 .section-title::after { content: ''; height: 1px; flex: 1; background: var(--border); }
 
-/* FEATURED PROJECTS */
+/* FEATURED PROJECTS (Clickable) */
 .project-card {
+    display: block; /* Make anchor tag a block */
+    text-decoration: none; /* Remove underline */
     background: var(--bg-panel); border: 1px solid var(--border);
     border-radius: var(--card-radius); padding: 24px; margin-bottom: 20px;
     transition: transform 0.2s, border-color 0.2s; position: relative; overflow: hidden;
@@ -182,18 +111,14 @@ body {
 .p-desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; }
 
 .p-tech-stack { display: flex; gap: 8px; flex-wrap: wrap; }
-.tech-pill {
-    font-size: 0.75rem; padding: 4px 10px; border-radius: 20px;
-    background: var(--border); color: var(--text-muted); font-family: var(--font-mono);
-}
+.tech-pill { font-size: 0.75rem; padding: 4px 10px; border-radius: 20px; background: var(--border); color: var(--text-muted); font-family: var(--font-mono); }
 
 /* ARCHIVE GRID */
-.archive-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px;
-}
+.archive-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
 .archive-item {
+    display: block; text-decoration: none; /* Make clickable */
     padding: 16px; background: var(--bg-panel); border: 1px solid var(--border);
-    border-radius: 12px; transition: 0.2s;
+    border-radius: 12px; transition: 0.2s; color: var(--text-main);
 }
 .archive-item:hover { border-color: var(--text-muted); background: var(--bg-panel-hover); }
 .a-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 6px; }
@@ -202,25 +127,20 @@ body {
 .pill-sm { font-size: 0.65rem; }
 
 /* TIMELINE */
-.timeline-item {
-    position: relative; padding-left: 24px; padding-bottom: 24px; border-left: 2px solid var(--border);
-}
+.timeline-item { position: relative; padding-left: 24px; padding-bottom: 24px; border-left: 2px solid var(--border); }
 .timeline-item:last-child { padding-bottom: 0; border-left-color: transparent; }
-.timeline-dot {
-    position: absolute; left: -6px; top: 0; width: 10px; height: 10px;
-    background: var(--accent); border-radius: 50%; border: 2px solid var(--bg-deep);
-}
+.timeline-dot { position: absolute; left: -6px; top: 0; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; border: 2px solid var(--bg-deep); }
 .t-date { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-bottom: 4px; }
 .t-role { font-weight: 600; font-size: 1rem; color: var(--text-main); }
 .t-company { font-size: 0.9rem; color: var(--text-muted); }
 
-/* TERMINAL */
+/* TERMINAL (FIXED HEIGHT) */
 .terminal {
     background: #0d0d0d; border: 1px solid var(--border); padding: 16px;
     border-radius: 12px; font-family: var(--font-mono); font-size: 0.8rem;
-    color: #a3a3a3; min-height: 150px; cursor: text;
+    color: #a3a3a3; height: 250px; overflow-y: auto; display: flex; flex-direction: column; cursor: text;
 }
-.cmd-line { display: flex; gap: 8px; margin-top: 8px; }
+.cmd-line { display: flex; gap: 8px; margin-top: 5px; flex-shrink: 0; }
 .cmd-prompt { color: var(--accent); }
 .cmd-input { background: transparent; border: none; color: #fff; outline: none; flex: 1; font-family: inherit; }
 
